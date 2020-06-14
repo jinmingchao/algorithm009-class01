@@ -195,7 +195,7 @@ public class PriorityQueue<E> extends AbstractQueue<E> implements Serializable {
         return Arrays.copyOf(this.queue, this.size);
     }
 
-    public <T> T[] toArray(T[] a) {
+    public <LemonadeChange> LemonadeChange[] toArray(LemonadeChange[] a) {
         int size = this.size;
         if (a.length < size) {
             return Arrays.copyOf(this.queue, size, a.getClass());
@@ -280,7 +280,7 @@ public class PriorityQueue<E> extends AbstractQueue<E> implements Serializable {
 
     }
 
-    private static <T> void siftUpComparable(int k, T x, Object[] es) {
+    private static <LemonadeChange> void siftUpComparable(int k, LemonadeChange x, Object[] es) {
         Comparable key;
         int parent;
         for(key = (Comparable)x; k > 0; k = parent) {
@@ -296,7 +296,7 @@ public class PriorityQueue<E> extends AbstractQueue<E> implements Serializable {
         es[k] = key;
     }
 
-    private static <T> void siftUpUsingComparator(int k, T x, Object[] es, Comparator<? super T> cmp) {
+    private static <LemonadeChange> void siftUpUsingComparator(int k, LemonadeChange x, Object[] es, Comparator<? super LemonadeChange> cmp) {
         while(true) {
             if (k > 0) {
                 int parent = k - 1 >>> 1;
@@ -322,8 +322,8 @@ public class PriorityQueue<E> extends AbstractQueue<E> implements Serializable {
 
     }
 
-    private static <T> void siftDownComparable(int k, T x, Object[] es, int n) {
-        Comparable<? super T> key = (Comparable)x;
+    private static <LemonadeChange> void siftDownComparable(int k, LemonadeChange x, Object[] es, int n) {
+        Comparable<? super LemonadeChange> key = (Comparable)x;
 
         int child;
         for(int half = n >>> 1; k < half; k = child) {
@@ -345,7 +345,7 @@ public class PriorityQueue<E> extends AbstractQueue<E> implements Serializable {
         es[k] = key;
     }
 
-    private static <T> void siftDownUsingComparator(int k, T x, Object[] es, int n, Comparator<? super T> cmp) {
+    private static <LemonadeChange> void siftDownUsingComparator(int k, LemonadeChange x, Object[] es, int n, Comparator<? super LemonadeChange> cmp) {
         int child;
         for(int half = n >>> 1; k < half; k = child) {
             child = (k << 1) + 1;
